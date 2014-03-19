@@ -12,3 +12,5 @@ Import -> Existing Android code into Workspace
 Source direcory: /adt-bundle-root/sdk/extras/google/google_play_services/
 
 4. Eclipse Projekt Peg -> Properties -> Android -> Library Add -> google-play-services_lib
+
+More Infos: http://developer.android.com/google/play-services/setup.html

@@ -1,7 +1,7 @@
 Peg
 ===
 
-# Installation:
+## Installation für Google Maps Integration:
 1. Folgende Komponenten installieren
 ![SDK Manager](http://i.imgur.com/Xd4CaVq.png "SDK Manager")
 

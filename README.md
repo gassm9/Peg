@@ -2,4 +2,4 @@ Peg
 ===
 
 # Installation:
-!(http://i.imgur.com/Xd4CaVq.png)
+![SDK Manager](http://i.imgur.com/Xd4CaVq.png "SDK Manager")

@@ -9,6 +9,7 @@ import java.util.Properties;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -121,6 +122,9 @@ public class ToDoActivity extends Activity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		if (item.getItemId() == R.id.menu_refresh) {
 			refreshItemsFromTable();
+		}
+		if(item.getItemId() == R.id.menu_map) {
+			startActivity(new Intent(this, RouteMapActivity.class));
 		}
 		
 		return true;

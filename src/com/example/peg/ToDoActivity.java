@@ -30,8 +30,6 @@ import com.microsoft.windowsazure.mobileservices.TableQueryCallback;
 
 public class ToDoActivity extends Activity {
 
-	android.content.res.AssetManager manager;
-	
 	/**
 	 * Mobile Service Client reference
 	 */
@@ -62,15 +60,6 @@ public class ToDoActivity extends Activity {
 	 */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-		manager = getAssets();
-		Properties p = new Properties();
-		try {
-			p.load(manager.open("config.properties"));
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-
 		
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_to_do);
@@ -84,8 +73,8 @@ public class ToDoActivity extends Activity {
 			// Create the Mobile Service Client instance, using the provided
 			// Mobile Service URL and key
 			mClient = new MobileServiceClient(
-					p.getProperty("azureUrl"),
-					p.getProperty("azureKey"),
+					getResources().getString(R.string.azureUrl),
+					getResources().getString(R.string.azureKey),
 					this).withFilter(new ProgressFilter());
 
 			// Get the Mobile Service Table instance to use

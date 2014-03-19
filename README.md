@@ -2,4 +2,4 @@ Peg
 ===
 
 # Installation:
-!(http://imgur.com/Xd4CaVq)
+!(http://i.imgur.com/Xd4CaVq.png)

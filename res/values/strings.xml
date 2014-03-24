@@ -11,5 +11,11 @@
     <string name="checkbox_text">Item Text</string>
     <string name="title_activity_route_map">RouteMapActivity</string>
     <string name="menu_map">Map</string>
+    <string name="ui_tabname_crawl">All Crawls</string>
+    <string name="ui_tabname_mycrawl">My Crawls</string>
+    <string name="ui_tabname_map">Map</string>
+    <string name="ui_tabname_docrawl">Create Crawl</string>
+    <string name="title_activity_crawldetail">CrawlDetailActivity</string>
+    <string name="button_join">join</string>
 
 </resources>

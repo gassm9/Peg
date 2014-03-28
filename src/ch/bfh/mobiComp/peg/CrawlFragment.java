@@ -1,14 +1,13 @@
 package ch.bfh.mobiComp.peg;
 
+import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.app.AlertDialog;
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -19,22 +18,40 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import ch.bfh.mobiComp.peg.data.CrawlItem;
 
 import com.example.peg.R;
+import com.microsoft.windowsazure.mobileservices.MobileServiceClient;
+import com.microsoft.windowsazure.mobileservices.MobileServiceTable;
+import com.microsoft.windowsazure.mobileservices.ServiceFilterResponse;
+import com.microsoft.windowsazure.mobileservices.TableQueryCallback;
 
 public class CrawlFragment extends Fragment {
+	
+	/**
+	 * Mobile Service Client reference
+	 */
+	private MobileServiceClient mClient;
+
+	/**
+	 * Mobile Service Table used to access data
+	 */
+	private MobileServiceTable<CrawlItem> mCrawlTable;
+	
+	/**
+	 * Adapter to sync the items list with the view
+	 */
+	private CrawlAdapter mAdapter;
+
+
 	public final static String ITEM = "ch.bfh.mobiComp.peg.ITEM";
+	
 	private List<String> mValues = new ArrayList<String>();
+	
 	ArrayAdapter<String> adapter;
 
 	// Search EditText
 	private EditText inputSearch;
-
-	protected void loadContent() {
-		for (int i = 0; i < 3; i++) {
-			mValues.add("Pubcrawl " + String.valueOf(i + 1));
-		}
-	}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -42,35 +59,43 @@ public class CrawlFragment extends Fragment {
 
 		View view = inflater.inflate(R.layout.crawl, container, false);
 
-		// get List of Pubcrawls
-		loadContent();
+		try {
+			// Create the Mobile Service Client instance, using the provided
+			// Mobile Service URL and key
+			mClient = new MobileServiceClient(
+					getResources().getString(R.string.azureUrl),
+					getResources().getString(R.string.azureKey),
+					this.getActivity());
 
-		final ListView listview = (ListView) view.findViewById(R.id.listView);
+			// Get the Mobile Service Table instance to use
+			mCrawlTable= mClient.getTable(CrawlItem.class);
 
-		final ArrayAdapter<String> adapter = new ArrayAdapter<String>(
-				inflater.getContext(), android.R.layout.simple_list_item_1,
-				mValues);
-		listview.setAdapter(adapter);
+			// Create an adapter to bind the items with the view
+			mAdapter = new CrawlAdapter(this.getActivity(), android.R.layout.simple_list_item_1);
+			ListView listCrawl = (ListView) view.findViewById(R.id.listView);
+			listCrawl.setOnItemClickListener(new OnItemClickListener() {  
+				   
+				@Override 
+	            public void onItemClick(AdapterView<?> parent, View view,  
+	                    int position, long id) {    
+	                
+	                CrawlItem item = mAdapter.getItem(position);
+
+	                Intent intent = new Intent(getActivity(), CrawlDetailActivity.class);
+	                intent.putExtra("CRAWLID", item.getId());
+	                startActivity(intent);
+
+	            }  
+	        });  
+			listCrawl.setAdapter(mAdapter);
 		
-		listview.setOnItemClickListener(new OnItemClickListener() {  
-			   
-			@Override 
-            public void onItemClick(AdapterView<?> parent, View view,  
-                    int position, long id) {    
-                
-                String item = (String) adapter.getItem(position);
+			// Load the items from the Mobile Service
+			refreshItemsFromTable();
 
-                Intent intent = new Intent(getActivity(), CrawlDetailActivity.class);
-                intent.putExtra("ITEM", item);
-                startActivity(intent);
-
-
-                   
-                   
-            }  
-        });  
-
-
+		} catch (MalformedURLException e) {
+			createAndShowDialog(new Exception("There was an error creating the Mobile Service. Verify the URL"), "Error");
+		}
+		
 		inputSearch = (EditText) view.findViewById(R.id.inputSearch);
 		inputSearch.addTextChangedListener(new TextWatcher() {
 
@@ -94,5 +119,64 @@ public class CrawlFragment extends Fragment {
 		});
 		return view;
 	}
+	
+	/**
+	 * Refresh the list with the items in the Mobile Service Table
+	 */
+	private void refreshItemsFromTable() {
+
+		// Get the items that weren't marked as completed and add them in the
+		// adapter
+		mCrawlTable.where().execute(new TableQueryCallback<CrawlItem>() {
+
+			public void onCompleted(List<CrawlItem> result, int count, Exception exception, ServiceFilterResponse response) {
+				if (exception == null) {
+					mAdapter.clear();
+
+					for (CrawlItem item : result) {
+						mAdapter.add(item);
+					}
+
+				} else {
+					createAndShowDialog(exception, "Error");
+				}
+			}
+		});
+	}
+	
+
+	/**
+	 * Creates a dialog and shows it
+	 * 
+	 * @param exception
+	 *            The exception to show in the dialog
+	 * @param title
+	 *            The dialog title
+	 */
+	private void createAndShowDialog(Exception exception, String title) {
+		Throwable ex = exception;
+		if(exception.getCause() != null){
+			ex = exception.getCause();
+		}
+		createAndShowDialog(ex.getMessage(), title);
+	}
+	
+
+	/**
+	 * Creates a dialog and shows it
+	 * 
+	 * @param message
+	 *            The dialog message
+	 * @param title
+	 *            The dialog title
+	 */
+	private void createAndShowDialog(String message, String title) {
+		AlertDialog.Builder builder = new AlertDialog.Builder(this.getActivity());
+
+		builder.setMessage(message);
+		builder.setTitle(title);
+		builder.create().show();
+	}
+
 
 }

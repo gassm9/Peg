@@ -1,8 +1,0 @@
-<resources>
-
-    <string name="GoogleMapsKey"></string>
-    
-    <string name="azureUrl"></string>
-    <string name="azureKey"></string>
-        
-</resources>

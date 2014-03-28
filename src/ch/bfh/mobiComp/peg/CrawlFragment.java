@@ -1,5 +1,6 @@
 package ch.bfh.mobiComp.peg;
 
+<<<<<<< HEAD
 import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +20,13 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import ch.bfh.mobiComp.peg.data.CrawlItem;
+=======
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+>>>>>>> 737eb783309f0ab3767917d55e19e0d08f85ad51
 
 import com.example.peg.R;
 import com.microsoft.windowsazure.mobileservices.MobileServiceClient;
@@ -27,6 +35,7 @@ import com.microsoft.windowsazure.mobileservices.ServiceFilterResponse;
 import com.microsoft.windowsazure.mobileservices.TableQueryCallback;
 
 public class CrawlFragment extends Fragment {
+<<<<<<< HEAD
 	
 	/**
 	 * Mobile Service Client reference
@@ -109,13 +118,17 @@ public class CrawlFragment extends Fragment {
 					int after) {
 				// Do nothing
 			}
+=======
 
-			@Override
-			public void onTextChanged(CharSequence s, int start, int before,
-					int count) {
-				adapter.getFilter().filter(s);
-			}
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+	    View v = inflater.inflate(R.layout.crawl, container, false);
+	    return v;
+	}
+>>>>>>> 737eb783309f0ab3767917d55e19e0d08f85ad51
 
+
+<<<<<<< HEAD
 		});
 		return view;
 	}
@@ -178,5 +191,7 @@ public class CrawlFragment extends Fragment {
 		builder.create().show();
 	}
 
+=======
+>>>>>>> 737eb783309f0ab3767917d55e19e0d08f85ad51
 
 }

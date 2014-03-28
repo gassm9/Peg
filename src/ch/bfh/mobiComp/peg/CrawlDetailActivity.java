@@ -7,8 +7,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.app.Activity;
+<<<<<<< HEAD
 import android.content.Intent;
 import android.content.res.Resources.NotFoundException;
+=======
+import android.content.res.Configuration;
+>>>>>>> 737eb783309f0ab3767917d55e19e0d08f85ad51
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ArrayAdapter;
@@ -24,6 +28,7 @@ import com.microsoft.windowsazure.mobileservices.TableQueryCallback;
 
 public class CrawlDetailActivity extends Activity{
 	
+<<<<<<< HEAD
 
 	private MobileServiceClient mClient;
 	private ArrayAdapter<PubItem> pubAdapter;
@@ -122,6 +127,28 @@ public class CrawlDetailActivity extends Activity{
 	
 	
 	
+=======
+	 @Override
+	 protected void onCreate(Bundle savedInstanceState) {
+	  super.onCreate(savedInstanceState);
+
+	  // Need to check if Activity has been switched to landscape mode
+	  // If yes, finished and go back to the start Activity
+	  if (getResources().getConfiguration().orientation == 
+	    Configuration.ORIENTATION_LANDSCAPE) {
+	   finish();
+	   return;
+	  }
+
+//	  setContentView(R.layout.crawldetailactivity);
+//	  Bundle extras = getIntent().getExtras();
+//	  if (extras != null) {
+//	   String s = extras.getString("value");
+//	   TextView view = (TextView) findViewById(R.id.detailsText);
+//	   view.setText(s);
+//	  }
+	 }
+>>>>>>> 737eb783309f0ab3767917d55e19e0d08f85ad51
 
 
 }

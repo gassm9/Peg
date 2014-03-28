@@ -6,14 +6,8 @@
 
     <fragment
         android:id="@+id/listFragment"
-        android:layout_width="150dip"
-        android:layout_height="match_parent"
-        android:layout_marginTop="?android:attr/actionBarSize"
-        class="ch.bfh.mobiComp.peg.CrawlListFragment" ></fragment>
-  <fragment
-        android:id="@+id/detailFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        class="ch.bfh.mobiComp.peg.CrawlDetailFragment" />
-
+        android:layout_marginTop="?android:attr/actionBarSize"
+        class="ch.bfh.mobiComp.peg.CrawlListFragment" />
 </LinearLayout> 

@@ -1,0 +1,8 @@
+<resources>
+
+    <string name="GoogleMapsKey">AIzaSyCO8cFBXxIyS9Iw3wzQ6Phc5bpybqgeYRM</string>
+    
+    <string name="azureUrl">https://peg.azure-mobile.net/</string>
+    <string name="azureKey">pSEUfuWPtjLKJjRfYbyCDZFYejvxHj25</string>
+        
+</resources>

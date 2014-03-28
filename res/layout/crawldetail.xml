@@ -5,26 +5,32 @@
     android:orientation="vertical" >
 
     <TextView
-        android:id="@+id/detailsText"
+        android:id="@+id/crawltitle"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_gravity="center_horizontal|center_vertical"
         android:layout_marginTop="20dip"
-        android:text="Large Text"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="30dip" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="15dp"
-        android:background="@drawable/layer_card_background"
-        android:gravity="center"
-        android:padding="15dp"
-        android:text="Detailtext" />
+      <com.google.android.gms.maps.MapView
+          xmlns:android="http://schemas.android.com/apk/res/android"
+          android:id="@+id/mapView"
+          android:layout_width="196dp"
+          android:layout_height="125dp" />
+    
+     <!--  fragment
+            android:layout_weight="6"
+            android:id="@+id/map"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            class="ch.bfh.mobiComp.peg.MapFragment"/-->
+    
 
     <TextView
+        android:id="@+id/crawldesc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -32,6 +38,23 @@
         android:background="@drawable/layer_card_background"
         android:gravity="center"
         android:padding="15dp"
-        android:text="Blablabla" />
+        android:text="Beschreibung des Crawls" />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="15dp"
+        android:background="@drawable/layer_card_background"
+        android:gravity="center"
+        android:padding="15dp"/>
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numStars="4"
+        android:rating="2.0"
+        android:stepSize="1.0" />
 
 </LinearLayout> 

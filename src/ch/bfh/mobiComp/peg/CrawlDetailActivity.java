@@ -21,13 +21,13 @@ public class CrawlDetailActivity extends Activity{
 	   return;
 	  }
 
-	  setContentView(R.layout.crawldetailactivity);
-	  Bundle extras = getIntent().getExtras();
-	  if (extras != null) {
-	   String s = extras.getString("value");
-	   TextView view = (TextView) findViewById(R.id.detailsText);
-	   view.setText(s);
-	  }
+//	  setContentView(R.layout.crawldetailactivity);
+//	  Bundle extras = getIntent().getExtras();
+//	  if (extras != null) {
+//	   String s = extras.getString("value");
+//	   TextView view = (TextView) findViewById(R.id.detailsText);
+//	   view.setText(s);
+//	  }
 	 }
 
 

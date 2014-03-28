@@ -50,7 +50,7 @@ public class CrawlListFragment extends ListFragment {
 		CrawlDetailFragment fragment = (CrawlDetailFragment) getFragmentManager()
 				.findFragmentById(R.id.detailFragment);
 		if (fragment != null && fragment.isInLayout()) {
-			fragment.setText(item);
+			fragment.setText(item , R.id.crawltitle);
 		} else {
 			Intent intent = new Intent(getActivity().getApplicationContext(),
 					CrawlDetailFragment.class);

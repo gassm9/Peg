@@ -1,7 +1,7 @@
 package ch.bfh.mobiComp.peg;
 
 import android.app.Activity;
-import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -9,24 +9,26 @@ import com.example.peg.R;
 
 public class CrawlDetailActivity extends Activity{
 	
-	public void onCreate(Bundle savedInstanceState) {
-		 super.onCreate(savedInstanceState);
-		 
-		setContentView(R.layout.crawldetail);
-		
-	    // Get the message from the intent
-	    Intent intent = getIntent();
-	    String message = intent.getStringExtra(CrawlFragment.ITEM);
+	 @Override
+	 protected void onCreate(Bundle savedInstanceState) {
+	  super.onCreate(savedInstanceState);
 
-	    // Create the text view
-	    TextView textView = new TextView(this);
-	    textView.setTextSize(40);
-	    textView.setText(message);
+	  // Need to check if Activity has been switched to landscape mode
+	  // If yes, finished and go back to the start Activity
+	  if (getResources().getConfiguration().orientation == 
+	    Configuration.ORIENTATION_LANDSCAPE) {
+	   finish();
+	   return;
+	  }
 
-	    // Set the text view as the activity layout
-	    setContentView(textView);
-		
-		}
+	  setContentView(R.layout.crawldetailactivity);
+	  Bundle extras = getIntent().getExtras();
+	  if (extras != null) {
+	   String s = extras.getString("value");
+	   TextView view = (TextView) findViewById(R.id.detailsText);
+	   view.setText(s);
+	  }
+	 }
 
 
 }

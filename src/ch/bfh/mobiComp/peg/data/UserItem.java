@@ -4,7 +4,7 @@ package ch.bfh.mobiComp.peg.data;
 /**
  * Represents an item in a Crawl list
  */
-public class PubCrawlItem {
+public class UserItem {
 
 	/**
 	 * Item Id
@@ -15,20 +15,13 @@ public class PubCrawlItem {
 	/**
 	 * Item text
 	 */
-	@com.google.gson.annotations.SerializedName("crawlid")
-	private String mCrawlId;
-
-	/**
-	 * Item text
-	 */
-	@com.google.gson.annotations.SerializedName("pubid")
-	private String mPubId;
-
+	@com.google.gson.annotations.SerializedName("name")
+	private String mName;
 
 	/**
 	 * ToDoItem constructor
 	 */
-	public PubCrawlItem() {
+	public UserItem() {
 
 	}
 
@@ -40,17 +33,16 @@ public class PubCrawlItem {
 	 * @param id
 	 *            The item id
 	 */
-	public PubCrawlItem(String id, String crawlid, String pubid ) {
+	public UserItem(String id, String name ) {
 		this.setId(id);
-		this.setCrawlId(crawlid);
-		this.setPubId(pubid);
+		this.setName(name);
 	}
 
 	/**
 	 * Returns the item text
 	 */
-	public String getCrawlId() {
-		return mCrawlId;
+	public String getName() {
+		return mName;
 	}
 
 	/**
@@ -59,8 +51,8 @@ public class PubCrawlItem {
 	 * @param text
 	 *            text to set
 	 */
-	public final void setCrawlId(String crawlid) {
-		mCrawlId = crawlid;
+	public final void setName(String name) {
+		mName = name;
 	}
 
 	/**
@@ -80,22 +72,8 @@ public class PubCrawlItem {
 		mId = id;
 	}
 
-	/**
-	 * Indicates if the item is marked as completed
-	 */
-	public String getPubId() {
-		return mPubId;
-	}
-
-	/**
-	 * Marks the item as completed or incompleted
-	 */
-	public void setPubId(String pubid) {
-		mPubId = pubid;
-	}
-
 	@Override
 	public boolean equals(Object o) {
-		return o instanceof PubCrawlItem && ((PubCrawlItem) o).mId == mId;
+		return o instanceof UserItem && ((UserItem) o).mId == mId;
 	}
 }

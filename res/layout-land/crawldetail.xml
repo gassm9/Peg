@@ -14,13 +14,14 @@
         android:textSize="30dip" />
 
     
-     <!-- fragment
+     <fragment
+            android:layout_weight="6"
             android:id="@+id/map"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_width="match_parent"
-            android:layout_height="160dp"
-            class="ch.bfh.mobiComp.peg.MapFragment"/-->
+            android:layout_height="0dp"
+            class="ch.bfh.mobiComp.peg.MapFragment"/>
     
 
     <TextView
@@ -34,7 +35,7 @@
         android:padding="15dp"
         android:text="Beschreibung des Crawls" />
     
-        <TextView
+            <TextView
         android:id="@+id/tv_crawlTime"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -54,6 +55,5 @@
         android:background="@drawable/layer_card_background"
         android:gravity="center"
         android:padding="15dp"/>
-
 
 </LinearLayout> 

@@ -46,7 +46,7 @@
             android:name="com.example.peg.MainActivity"
             android:label="@string/title_activity_main" >
         </activity>
-                <activity
+        <activity
             android:name="ch.bfh.mobiComp.peg.CrawlDetailActivity"
             android:label="@string/title_activity_crawldetail" >
         </activity>
@@ -54,6 +54,11 @@
             android:name="com.example.peg.RouteMapActivity"
             android:label="@string/title_activity_route_map" >
         </activity>
+             <activity
+            android:name="ch.bfh.mobiComp.peg.PubDetailActivity"
+            android:label="@string/title_activity_pubdetail" >
+        </activity>
+        
     </application>
 
 </manifest>

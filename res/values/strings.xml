@@ -15,7 +15,9 @@
     <string name="ui_tabname_mycrawl">My Crawls</string>
     <string name="ui_tabname_map">Map</string>
     <string name="ui_tabname_docrawl">Create Crawl</string>
-    <string name="title_activity_crawldetail">CrawlDetailActivity</string>
+    <string name="title_activity_crawldetail">Crawl Information</string>
     <string name="button_join">join</string>
+    <string name="title_activity_pubdetail">Pub Detail</string>
+        <string name="img_pub">Pub</string>
 
 </resources>

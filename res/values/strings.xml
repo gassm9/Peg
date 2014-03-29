@@ -18,6 +18,6 @@
     <string name="title_activity_crawldetail">Crawl Information</string>
     <string name="button_join">join</string>
     <string name="title_activity_pubdetail">Pub Detail</string>
-        <string name="img_pub">Pub</string>
+    <string name="img_pub">Pub</string>
 
 </resources>

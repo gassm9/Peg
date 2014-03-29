@@ -7,22 +7,19 @@
     <TextView
         android:id="@+id/tv_pubName"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_height="70dp"
+        android:layout_gravity="center_horizontal|center_vertical"
         android:layout_margin="15dp"
-        android:background="@drawable/layer_card_background"
+        android:layout_marginTop="20dip"
         android:gravity="center"
-        android:padding="15dp" />
+        android:padding="15dp"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <ImageView
         android:id="@+id/iv_pub"
-        android:layout_width="180dp"
-        android:layout_height="180dp"
-        android:contentDescription="@string/img_pub"
-        android:gravity="center"
-        android:maxHeight="140dp"
-        android:maxWidth="140dp"
-        android:scaleType="centerInside" />
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:layout_gravity="center" />
 
     <TextView
         android:id="@+id/tv_pubDesc"
@@ -37,12 +34,11 @@
 
     <RatingBar
         android:id="@+id/rb_pubRating"
-        android:layout_width="wrap_content"
+        android:layout_width="185dp"
         android:layout_height="wrap_content"
-        android:gravity="center"
+        android:layout_gravity="center"
         android:numStars="4"
         android:rating="2.0"
-        android:scaleType="centerInside"
         android:stepSize="1.0" />
 
 </LinearLayout>

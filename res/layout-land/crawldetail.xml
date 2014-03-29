@@ -7,21 +7,18 @@
     <TextView
         android:id="@+id/tv_crawlName"
         android:layout_width="wrap_content"
-        android:layout_height="50dp"
+        android:layout_height="30dp"
         android:layout_gravity="center_horizontal|center_vertical"
-        android:layout_marginTop="20dip"
+        android:layout_marginTop="10dip"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="30dip" />
+        android:textSize="25dip" />
 
     
-     <fragment
-            android:layout_weight="6"
-            android:id="@+id/map"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            class="ch.bfh.mobiComp.peg.MapFragment"/>
+    <fragment
+        android:id="@+id/mapFrag"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        class="com.google.android.gms.maps.SupportMapFragment" />
     
 
     <TextView

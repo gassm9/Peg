@@ -11,10 +11,10 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import ch.bfh.mobiComp.peg.data.CrawlItem;
 
 import com.example.peg.R;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.SupportMapFragment;
 
 public class CrawlDetailFragment extends Fragment {
 
@@ -75,9 +75,16 @@ public class CrawlDetailFragment extends Fragment {
 		return view;
 	}
 
-	public void setText(String item, int text) {
-		TextView view = (TextView) getView().findViewById(text);
-		view.setText(item);
-	}
+	 public void setText(String item, int text) {
+	  TextView view = (TextView) getView().findViewById(text);
+	  view.setText(item);
+	 }
 
+	public void showInfo(CrawlItem crawlItem) {
+		// set description,
+		
+		// zoom in map...
+		
+	}
+	
 }

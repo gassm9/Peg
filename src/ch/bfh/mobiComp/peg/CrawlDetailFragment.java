@@ -5,7 +5,9 @@ import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import ch.bfh.mobiComp.peg.data.CrawlItem;
 
@@ -38,6 +40,17 @@ public class CrawlDetailFragment extends Fragment{
 //	  SupportMapFragment mapFragment = (SupportMapFragment) getFragmentManager().findFragmentById(R.id.mapFrag);
 //	  
 //	  mapFragment.getMap().moveCamera(CameraUpdateFactory.newLatLngZoom(pubs.get(0), 13.0f));
+	  
+	  Button joinButton = (Button) view.findViewById(R.id.btnJoinCrawl);
+	  joinButton.setOnClickListener(new OnClickListener() {
+		
+		@Override
+		public void onClick(View arg0) {
+			// TODO Auto-generated method stub
+			Log.d("", "JOIN");
+			
+		}
+	});
 
 	  return view;
 	 }
@@ -53,5 +66,6 @@ public class CrawlDetailFragment extends Fragment{
 		// zoom in map...
 		
 	}
+	
 	
 }

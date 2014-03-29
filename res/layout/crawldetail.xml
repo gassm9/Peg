@@ -56,9 +56,10 @@
         android:stepSize="1.0" />
       
       <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/button_join" />
+          android:id="@+id/btnJoinCrawl"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/button_join" />
   
       <ListView
         android:id="@+id/pubList"

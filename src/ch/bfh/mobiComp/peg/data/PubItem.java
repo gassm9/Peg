@@ -137,28 +137,28 @@ public class PubItem {
 	 * Indicates if the item is marked as completed
 	 */
 	public String getLongitude() {
-		return mDescription;
+		return mLongitude;
 	}
 
 	/**
 	 * Marks the item as completed or incompleted
 	 */
 	public void setLongitude(String longitude) {
-		mDescription = longitude;
+		mLongitude = longitude;
 	}
 	
 	/**
 	 * Indicates if the item is marked as completed
 	 */
 	public String getLatitude() {
-		return mDescription;
+		return mLatitude;
 	}
 
 	/**
 	 * Marks the item as completed or incompleted
 	 */
 	public void setLatitude(String latitude) {
-		mDescription = latitude;
+		mLatitude = latitude;
 	}
 
 

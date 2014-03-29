@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import ch.bfh.mobiComp.peg.data.CrawlItem;
 
 import com.example.peg.R;
 import com.google.android.gms.maps.MapView;
@@ -31,8 +32,12 @@ public class CrawlDetailFragment extends Fragment{
 		 MapView m;
 		 
 	  View view = inflater.inflate(R.layout.crawldetail, container, false);
-	  m = (MapView) view.findViewById(R.id.mapView);
-	          m.onCreate(savedInstanceState);
+//	  m = (MapView) view.findViewById(R.id.mapView);
+//	          m.onCreate(savedInstanceState);
+	          
+//	  SupportMapFragment mapFragment = (SupportMapFragment) getFragmentManager().findFragmentById(R.id.mapFrag);
+//	  
+//	  mapFragment.getMap().moveCamera(CameraUpdateFactory.newLatLngZoom(pubs.get(0), 13.0f));
 
 	  return view;
 	 }
@@ -41,5 +46,12 @@ public class CrawlDetailFragment extends Fragment{
 	  TextView view = (TextView) getView().findViewById(text);
 	  view.setText(item);
 	 }
+
+	public void showInfo(CrawlItem crawlItem) {
+		// set description,
+		
+		// zoom in map...
+		
+	}
 	
 }

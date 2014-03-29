@@ -3,21 +3,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
+    
+ <fragment
+    android:id="@+id/mapFrag"
+    class="com.google.android.gms.maps.SupportMapFragment"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"/>
 
-    <TextView
-        android:id="@+id/crawltitle"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_gravity="center_horizontal|center_vertical"
-        android:layout_marginTop="20dip"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="30dip" />
-
-      <com.google.android.gms.maps.MapView
-          xmlns:android="http://schemas.android.com/apk/res/android"
-          android:id="@+id/mapView"
-          android:layout_width="196dp"
-          android:layout_height="125dp" />
+<!--       <com.google.android.gms.maps.MapView -->
+<!--           xmlns:android="http://schemas.android.com/apk/res/android" -->
+<!--           android:id="@+id/mapView" -->
+<!--           android:layout_width="196dp" -->
+<!--           android:layout_height="125dp" /> -->
+      
     
      <!--  fragment
             android:layout_weight="6"
@@ -40,30 +38,31 @@
         android:padding="15dp"
         android:text="Beschreibung des Crawls" />
 
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="15dp"
-        android:background="@drawable/layer_card_background"
-        android:gravity="center"
-        android:padding="15dp"/>
+<!--     <ListView -->
+<!--         android:layout_width="match_parent" -->
+<!--         android:layout_height="wrap_content" -->
+<!--         android:layout_gravity="center" -->
+<!--         android:layout_margin="15dp" -->
+<!--         android:background="@drawable/layer_card_background" -->
+<!--         android:gravity="center" -->
+<!--         android:padding="15dp"/> -->
 
     <RatingBar
         android:id="@+id/ratingBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-<<<<<<< HEAD
+        android:numStars="4"
+        android:rating="2.0"
+        android:stepSize="1.0" />
+      
+      <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="@string/button_join" />
   
       <ListView
         android:id="@+id/pubList"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" />
-=======
-        android:numStars="4"
-        android:rating="2.0"
-        android:stepSize="1.0" />
->>>>>>> 737eb783309f0ab3767917d55e19e0d08f85ad51
 
 </LinearLayout> 

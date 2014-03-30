@@ -1,13 +1,14 @@
 package ch.bfh.mobiComp.peg;
 
+
 import java.net.MalformedURLException;
 import java.util.List;
 
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import ch.bfh.mobiComp.peg.data.CrawlItem;
 
@@ -19,6 +20,7 @@ import com.microsoft.windowsazure.mobileservices.TableQueryCallback;
 
 public class CrawlListFragment extends ListFragment {
 
+	ArrayAdapter<String> adapter;
 	private MobileServiceClient mClient;
 	private MobileServiceTable<CrawlItem> mCrawlTable;
 	private CrawlAdapter mAdapter;
@@ -34,7 +36,7 @@ public class CrawlListFragment extends ListFragment {
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
-		
+
 		try {
 			// Create the Mobile Service Client instance, using the provided
 			// Mobile Service URL and key
@@ -90,19 +92,13 @@ public class CrawlListFragment extends ListFragment {
 	public void onListItemClick(ListView l, View v, int position, long id) {
 		
 		CrawlItem crawlItem = mAdapter.getItem(position);
+
 		
-//		 Hier ev. je nach landscape mode
-//		if (fragment != null && fragment.isInLayout()) {
-//			fragment.setText(crawlItem.getName() , R.id.crawltitle);
-//		} else {
-//			Intent intent = new Intent(getActivity().getApplicationContext(), CrawlDetailFragment.class);
-//			intent.putExtra("value", crawlItem.getId());
-//			startActivity(intent);
-			
+				CrawlDetailFragment crawlDetailFragment = (CrawlDetailFragment) getFragmentManager()
+				.findFragmentById(R.id.detailFragment);
 		
-		if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
-			// use details frgment
-			CrawlDetailFragment crawlDetailFragment = (CrawlDetailFragment) getFragmentManager().findFragmentById(R.id.detailFragment);
+		if (crawlDetailFragment != null && crawlDetailFragment.isInLayout()) {
+			// use details fragment
 			crawlDetailFragment.showInfo(crawlItem);
 			
 		} else {
@@ -115,7 +111,6 @@ public class CrawlListFragment extends ListFragment {
 		}
 		
 
-//		}
 
 	}
 

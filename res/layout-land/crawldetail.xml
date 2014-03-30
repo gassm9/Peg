@@ -13,29 +13,36 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="25dip" />
 
+    
     <fragment
         android:id="@+id/mapFrag"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         class="com.google.android.gms.maps.SupportMapFragment" />
+    
 
-<!--     <TextView -->
-<!--         android:id="@+id/tv_crawlTime" -->
-<!--         android:layout_width="match_parent" -->
-<!--         android:layout_height="wrap_content" -->
-<!--         android:layout_gravity="center" -->
-<!--         android:layout_margin="15dp" -->
-<!--         android:background="@drawable/layer_card_background" -->
-<!--         android:gravity="center" -->
-<!--         android:padding="15dp" -->
-<!--         android:text="Pubcrawl findet statt am dd.mm.yyyy um hh:mm - hh:mm" /> -->
-      
-      <Button
-          android:id="@+id/btnJoinCrawl"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:text="@string/button_join" />
-  
+    <TextView
+        android:id="@+id/tv_crawlDesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="15dp"
+        android:background="@drawable/layer_card_background"
+        android:gravity="center"
+        android:padding="15dp"
+        android:text="Beschreibung des Crawls" />
+    
+            <TextView
+        android:id="@+id/tv_crawlTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="15dp"
+        android:background="@drawable/layer_card_background"
+        android:gravity="center"
+        android:padding="15dp"
+        android:text="Pubcrawl findet statt am dd.mm.yyyy um hh:mm - hh:mm" />
+
     <ListView
         android:id="@+id/lv_pubList"
         android:layout_width="match_parent"
@@ -44,6 +51,6 @@
         android:layout_margin="15dp"
         android:background="@drawable/layer_card_background"
         android:gravity="center"
-        android:padding="15dp" />
+        android:padding="15dp"/>
 
-</LinearLayout>
+</LinearLayout> 

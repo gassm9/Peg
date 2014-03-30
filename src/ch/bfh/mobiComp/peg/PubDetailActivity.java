@@ -29,22 +29,28 @@ public class PubDetailActivity extends Activity{
 
 		setContentView(R.layout.pubdetail);
 		
+		String pubDesc = getIntent().getStringExtra("PUBDESC");
+		String pubImgUrl = getIntent().getStringExtra("PUBIMGURL");
+		String pubName = getIntent().getStringExtra("PUBNAME");
+		
 		imageView = (ImageView) findViewById(R.id.iv_pub);
 		
 		// Create an object for subclass of AsyncTask
-				GetXMLTask task = new GetXMLTask();
-				// Execute the task
-				task.execute(new String[] { URL });
+		GetXMLTask task = new GetXMLTask();
+		// Execute the task
+		task.execute(new String[] { pubImgUrl });
 		
 
 		
 		
 		Bundle extras = getIntent().getExtras();
-		if (extras != null) {
-			String s = extras.getString("value");
-			TextView view = (TextView) findViewById(R.id.tv_pubName);
-			view.setText(s);
-		}
+		this.setTitle(pubName);
+		TextView viewPubDesc = (TextView) findViewById(R.id.tv_pubDesc);
+		viewPubDesc.setText(pubDesc);
+//		if (extras != null) {
+//			String s = extras.getString("value");
+//			view.setText(s);
+//		}
 	}
 	
 	

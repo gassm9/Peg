@@ -5,6 +5,7 @@ import static com.microsoft.windowsazure.mobileservices.MobileServiceQueryOperat
 import java.net.MalformedURLException;
 import java.util.List;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources.NotFoundException;
 import android.os.Bundle;
@@ -13,6 +14,8 @@ import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -48,15 +51,13 @@ public class CrawlDetailActivity extends FragmentActivity {
 		}
 
 		setContentView(R.layout.crawldetail);
-
-		TextView crawlDesc = (TextView) findViewById(R.id.tv_crawlDesc);
-		// crawlDesc.setText(text)
-		// TODO. crawl description
-
+		
 		String s = getIntent().getStringExtra("CRAWLNAME");
 		TextView view = (TextView) findViewById(R.id.tv_crawlName);
 		view.setText(s);
 
+		final String crawlId = getIntent().getStringExtra("CRAWLID");
+		
 //		this.setTitle(getIntent().getStringExtra("CRAWLNAME"));
 
 		// Create the Mobile Service Client instance, using the provided
@@ -79,7 +80,6 @@ public class CrawlDetailActivity extends FragmentActivity {
 		ListView pubList = (ListView) findViewById(R.id.lv_pubList);
 		pubList.setAdapter(pubAdapter);
 		
-		final String crawlId = getIntent().getStringExtra("CRAWLID");
 		
 		Button joinButton = (Button) findViewById(R.id.btnJoinCrawl);
 		joinButton.setOnClickListener(new OnClickListener() {
@@ -90,8 +90,26 @@ public class CrawlDetailActivity extends FragmentActivity {
 			}
 		});
 		
+		pubList.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+				// TODO Auto-generated method stub
+				PubItem pub = pubAdapter.getItem(arg2);
+
+				Intent intent = new Intent(getApplicationContext(), PubDetailActivity.class);
+				// TODO: The ID of the clicked PubItem must be notified to
+				// PubDetailActivity
+				intent.putExtra("PUBID", pub.getId());
+				intent.putExtra("PUBNAME", pub.getName());
+				intent.putExtra("PUBDESC", pub.getDescription());
+				intent.putExtra("PUBIMGURL", pub.getImgUrl());
+				startActivity(intent);
+			}
+		});
+		
 		loadPubsForCrawl(crawlId);
-		}
+	}
 	
 	private  void joinCrawl(String crawlId) {
 		UserCrawlItem userCrawl = new UserCrawlItem();
@@ -112,45 +130,7 @@ public class CrawlDetailActivity extends FragmentActivity {
 		
 		
 	}
-//
-//	private void loadPubsForCrawl(String crawlId) {
-//		MobileServiceTable<PubCrawlItem> pubCrawlTable = mClient.getTable(PubCrawlItem.class);
-//		
-//		
-//		pubCrawlTable.where().field("crawlid").eq(val(crawlId)).execute(new TableQueryCallback<PubCrawlItem>() {
-//			int pubCounter = 0;
-//		pubAdapter = new ArrayAdapter<PubItem>(this,
-//				android.R.layout.simple_list_item_1);
-//
-//		ListView lvPub = (ListView) findViewById(R.id.lv_pubList);
-//		// TODO: Get PubItems by CrawlItem Id from DB
-//		String[] pubs = new String[] { "Pub1", "Pub2", "Pub3" };
-//		final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-//				android.R.layout.simple_list_item_1, pubs);
-//
-//		lvPub.setAdapter(adapter);
-//
-//		lvPub.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//
-//			@Override
-//			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
-//					long arg3) {
-//				String item = (String) adapter.getItem(arg2);
-//
-//				Intent intent = new Intent(getApplicationContext(),
-//						PubDetailActivity.class);
-//				// TODO: The ID of the clicked PubItem must be notified to
-//				// PubDetailActivity
-//				intent.putExtra("value", item);
-//				startActivity(intent);
-//
-//			}
-//		});
-//
-//		String crawlId = getIntent().getStringExtra("CRAWLID");
-//
-//		loadPubsForCrawl(crawlId);
-//	}
+
 
 	private void loadPubsForCrawl(String crawlId) {
 		MobileServiceTable<PubCrawlItem> pubCrawlTable = mClient.getTable(PubCrawlItem.class);

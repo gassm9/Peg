@@ -92,14 +92,11 @@ public class CrawlListFragment extends ListFragment {
 	public void onListItemClick(ListView l, View v, int position, long id) {
 		
 		CrawlItem crawlItem = mAdapter.getItem(position);
-
-		
-				CrawlDetailFragment crawlDetailFragment = (CrawlDetailFragment) getFragmentManager()
-				.findFragmentById(R.id.detailFragment);
+		CrawlDetailFragment crawlDetailFragment = (CrawlDetailFragment) getFragmentManager().findFragmentById(R.id.detailFragment);
 		
 		if (crawlDetailFragment != null && crawlDetailFragment.isInLayout()) {
 			// use details fragment
-			crawlDetailFragment.showInfo(crawlItem);
+			crawlDetailFragment.loadPubsForCrawl(crawlItem.getId());
 			
 		} else {
 			// Start new Activity

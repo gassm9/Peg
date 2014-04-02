@@ -6,6 +6,10 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 
+import ch.bfh.mobiComp.peg.R;
+import ch.bfh.mobiComp.peg.R.id;
+import ch.bfh.mobiComp.peg.R.layout;
+
 import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -13,8 +17,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.example.peg.R;
 
 public class PubDetailActivity extends Activity{
 	

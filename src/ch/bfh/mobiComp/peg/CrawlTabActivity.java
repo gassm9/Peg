@@ -1,5 +1,10 @@
 package ch.bfh.mobiComp.peg;
 
+import ch.bfh.mobiComp.peg.R;
+import ch.bfh.mobiComp.peg.R.id;
+import ch.bfh.mobiComp.peg.R.layout;
+import ch.bfh.mobiComp.peg.R.string;
+import ch.bfh.mobiComp.peg.adapter.TabsPagerAdapter;
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.app.FragmentTransaction;
@@ -7,10 +12,7 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 
-import com.example.peg.R;
-
-
-public class TabActivity extends FragmentActivity implements
+public class CrawlTabActivity extends FragmentActivity implements
 ActionBar.TabListener {
 	 
 private ViewPager viewPager;

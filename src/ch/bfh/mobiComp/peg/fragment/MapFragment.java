@@ -1,4 +1,4 @@
-package ch.bfh.mobiComp.peg;
+package ch.bfh.mobiComp.peg.fragment;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package ch.bfh.mobiComp.peg;
+package ch.bfh.mobiComp.peg.fragment;
 
 
 import java.net.MalformedURLException;
@@ -9,10 +9,12 @@ import android.os.Bundle;
 import android.provider.Settings.Secure;
 import android.support.v4.app.ListFragment;
 import android.util.Log;
+import ch.bfh.mobiComp.peg.R;
+import ch.bfh.mobiComp.peg.R.string;
+import ch.bfh.mobiComp.peg.adapter.CrawlAdapter;
 import ch.bfh.mobiComp.peg.data.CrawlItem;
 import ch.bfh.mobiComp.peg.data.UserCrawlItem;
 
-import com.example.peg.R;
 import com.microsoft.windowsazure.mobileservices.MobileServiceClient;
 import com.microsoft.windowsazure.mobileservices.MobileServiceTable;
 import com.microsoft.windowsazure.mobileservices.ServiceFilterResponse;

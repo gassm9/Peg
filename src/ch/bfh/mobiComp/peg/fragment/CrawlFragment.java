@@ -1,4 +1,4 @@
-package ch.bfh.mobiComp.peg;
+package ch.bfh.mobiComp.peg.fragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,9 +11,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import ch.bfh.mobiComp.peg.R;
+import ch.bfh.mobiComp.peg.R.layout;
+import ch.bfh.mobiComp.peg.adapter.CrawlAdapter;
 import ch.bfh.mobiComp.peg.data.CrawlItem;
-
-import com.example.peg.R;
 import com.microsoft.windowsazure.mobileservices.MobileServiceClient;
 import com.microsoft.windowsazure.mobileservices.MobileServiceTable;
 import com.microsoft.windowsazure.mobileservices.ServiceFilterResponse;

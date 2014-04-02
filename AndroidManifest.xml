@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.peg"
+    package="ch.bfh.mobiComp.peg"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -26,7 +26,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="ch.bfh.mobiComp.peg.TabActivity"
+            android:name="ch.bfh.mobiComp.peg.CrawlTabActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -43,22 +43,21 @@
             android:value="@string/GoogleMapsKey" />
 
         <activity
-            android:name="com.example.peg.MainActivity"
-            android:label="@string/title_activity_main" >
-        </activity>
-        <activity
             android:name="ch.bfh.mobiComp.peg.CrawlDetailActivity"
             android:label="@string/title_activity_crawldetail" >
         </activity>
         <activity
-            android:name="com.example.peg.RouteMapActivity"
-            android:label="@string/title_activity_route_map" >
-        </activity>
-             <activity
             android:name="ch.bfh.mobiComp.peg.PubDetailActivity"
             android:label="@string/title_activity_pubdetail" >
         </activity>
-        
     </application>
+        <application>
+        <uses-library android:name="android.test.runner" />
+    </application>
+
+    <instrumentation
+        android:name="com.google.android.apps.common.testing.testrunner.GoogleInstrumentationTestRunner"
+        android:targetPackage="ch.bfh.mobiComp.peg" />
+    
 
 </manifest>

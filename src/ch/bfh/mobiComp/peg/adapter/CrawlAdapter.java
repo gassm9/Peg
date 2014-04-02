@@ -1,4 +1,4 @@
-package ch.bfh.mobiComp.peg;
+package ch.bfh.mobiComp.peg.adapter;
 
 import android.content.Context;
 import android.widget.ArrayAdapter;

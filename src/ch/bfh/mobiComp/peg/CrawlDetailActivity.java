@@ -5,6 +5,7 @@ import static com.microsoft.windowsazure.mobileservices.MobileServiceQueryOperat
 import java.net.MalformedURLException;
 import java.util.List;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources.NotFoundException;
@@ -21,11 +22,14 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+import ch.bfh.mobiComp.peg.R;
+import ch.bfh.mobiComp.peg.R.id;
+import ch.bfh.mobiComp.peg.R.layout;
+import ch.bfh.mobiComp.peg.R.string;
 import ch.bfh.mobiComp.peg.data.PubCrawlItem;
 import ch.bfh.mobiComp.peg.data.PubItem;
 import ch.bfh.mobiComp.peg.data.UserCrawlItem;
 
-import com.example.peg.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
@@ -49,6 +53,12 @@ public class CrawlDetailActivity extends FragmentActivity {
 			finish();
 			return;
 		}
+
+        // get action bar   
+        ActionBar actionBar = getActionBar();
+ 
+        // Enabling Up / Back navigation
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
 		setContentView(R.layout.crawldetail);
 		

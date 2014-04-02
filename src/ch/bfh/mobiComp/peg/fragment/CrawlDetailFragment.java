@@ -1,10 +1,11 @@
-package ch.bfh.mobiComp.peg;
+package ch.bfh.mobiComp.peg.fragment;
 
 import static com.microsoft.windowsazure.mobileservices.MobileServiceQueryOperations.val;
 
 import java.net.MalformedURLException;
 import java.util.List;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.content.res.Resources.NotFoundException;
 import android.os.Bundle;
@@ -21,11 +22,14 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+import ch.bfh.mobiComp.peg.PubDetailActivity;
+import ch.bfh.mobiComp.peg.R;
+import ch.bfh.mobiComp.peg.R.id;
+import ch.bfh.mobiComp.peg.R.layout;
+import ch.bfh.mobiComp.peg.R.string;
 import ch.bfh.mobiComp.peg.data.PubCrawlItem;
 import ch.bfh.mobiComp.peg.data.PubItem;
 import ch.bfh.mobiComp.peg.data.UserCrawlItem;
-
-import com.example.peg.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
@@ -124,6 +128,13 @@ public class CrawlDetailFragment extends Fragment {
 
 			}
 		});
+		
+
+        // get action bar   
+        ActionBar actionBar = getActivity().getActionBar();
+ 
+        // Enabling Up / Back navigation
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
 		return view;
 	}

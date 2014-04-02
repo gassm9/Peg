@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="?android:attr/actionBarSize"
-        class="ch.bfh.mobiComp.peg.CrawlListFragment" ></fragment>
+        class="ch.bfh.mobiComp.peg.fragment.CrawlListFragment" ></fragment>
 
 
 </LinearLayout> 

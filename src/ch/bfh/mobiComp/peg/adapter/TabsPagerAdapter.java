@@ -1,5 +1,9 @@
-package ch.bfh.mobiComp.peg;
+package ch.bfh.mobiComp.peg.adapter;
 
+import ch.bfh.mobiComp.peg.fragment.CrawlFragment;
+import ch.bfh.mobiComp.peg.fragment.DoCrawlFragment;
+import ch.bfh.mobiComp.peg.fragment.MapFragment;
+import ch.bfh.mobiComp.peg.fragment.MyCrawlFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;

@@ -15,6 +15,9 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -34,6 +37,19 @@ public class PubDetailActivity extends Activity{
 		String pubDesc = getIntent().getStringExtra("PUBDESC");
 		String pubImgUrl = getIntent().getStringExtra("PUBIMGURL");
 		String pubName = getIntent().getStringExtra("PUBNAME");
+		
+		final Button rateButton = (Button) findViewById(R.id.btnRate);
+		rateButton.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				rateButton.setEnabled(false);
+			}
+		});
+		
+		TextView tvRating = (TextView)findViewById(R.id.tv_pubRating);
+		tvRating.setText(this.getString(R.string.rating));
+		
 		
 		imageView = (ImageView) findViewById(R.id.iv_pub);
 		

@@ -4,12 +4,14 @@ package ch.bfh.mobiComp.peg.fragment;
 import java.net.MalformedURLException;
 import java.util.List;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -18,9 +20,6 @@ import android.widget.SearchView.OnQueryTextListener;
 import android.widget.Toast;
 import ch.bfh.mobiComp.peg.CrawlDetailActivity;
 import ch.bfh.mobiComp.peg.R;
-import ch.bfh.mobiComp.peg.R.id;
-import ch.bfh.mobiComp.peg.R.menu;
-import ch.bfh.mobiComp.peg.R.string;
 import ch.bfh.mobiComp.peg.adapter.CrawlAdapter;
 import ch.bfh.mobiComp.peg.data.CrawlItem;
 
@@ -51,6 +50,19 @@ public class CrawlListFragment extends ListFragment implements OnQueryTextListen
 	    SearchView searchView = (SearchView)menu.findItem(R.id.grid_default_search).getActionView();
 	    searchView.setOnQueryTextListener(this);
 	}
+	
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+        case R.id.action_exit:
+            getActivity().finish();
+            return true;
+        default:
+            return super.onOptionsItemSelected(item);
+        }
+    }
 
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
@@ -73,9 +85,14 @@ public class CrawlListFragment extends ListFragment implements OnQueryTextListen
 			mAdapter = new CrawlAdapter(this.getActivity(), android.R.layout.simple_list_item_1);
 			setListAdapter(mAdapter);
 			
-		
+			ProgressDialog pdialog;
+			pdialog = new ProgressDialog(getActivity());
+			pdialog.setCancelable(true);
+			pdialog.setMessage("Loading ....");
+			pdialog.show();
 			// Load the items from the Mobile Service
 			refreshItemsFromTable();
+			pdialog.dismiss();
 
 		} catch (MalformedURLException e) {
 //			createAndShowDialog(new Exception("There was an error creating the Mobile Service. Verify the URL"), "Error");

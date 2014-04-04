@@ -4,6 +4,7 @@ package ch.bfh.mobiComp.peg.fragment;
 import java.net.MalformedURLException;
 import java.util.List;
 
+import android.app.ProgressDialog;
 import android.content.res.Resources.NotFoundException;
 import android.os.Bundle;
 import android.provider.Settings.Secure;
@@ -48,6 +49,12 @@ public class MyCrawlFragment extends ListFragment {
 		adapter = new CrawlAdapter(this.getActivity(), android.R.layout.simple_list_item_1);
 		this.setListAdapter(adapter);
 		
+		ProgressDialog pdialog;
+		pdialog = new ProgressDialog(getActivity());
+		pdialog.setCancelable(true);
+		pdialog.setMessage("Loading ....");
+		pdialog.show();
+		
 		MobileServiceTable<UserCrawlItem> crawlTable = mClient.getTable(UserCrawlItem.class);
 		
 		String userid = Secure.getString(getActivity().getBaseContext().getContentResolver(),Secure.ANDROID_ID);
@@ -77,6 +84,8 @@ public class MyCrawlFragment extends ListFragment {
 			}
 		
 		});
+
+		pdialog.dismiss();
 		
 	
 	}

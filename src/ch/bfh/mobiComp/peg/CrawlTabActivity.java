@@ -1,16 +1,15 @@
 package ch.bfh.mobiComp.peg;
 
-import ch.bfh.mobiComp.peg.R;
-import ch.bfh.mobiComp.peg.R.id;
-import ch.bfh.mobiComp.peg.R.layout;
-import ch.bfh.mobiComp.peg.R.string;
-import ch.bfh.mobiComp.peg.adapter.TabsPagerAdapter;
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import ch.bfh.mobiComp.peg.adapter.TabsPagerAdapter;
 
 public class CrawlTabActivity extends FragmentActivity implements
 ActionBar.TabListener {
@@ -93,4 +92,6 @@ private ActionBar actionBar;
     @Override
     public void onTabUnselected(Tab tab, FragmentTransaction ft) {
     }
+    
+    
 }

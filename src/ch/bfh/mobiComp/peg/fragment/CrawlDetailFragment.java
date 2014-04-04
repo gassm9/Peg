@@ -22,6 +22,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+import ch.bfh.mobiComp.peg.CrawlTabActivity;
 import ch.bfh.mobiComp.peg.PubDetailActivity;
 import ch.bfh.mobiComp.peg.R;
 import ch.bfh.mobiComp.peg.R.id;
@@ -95,12 +96,18 @@ public class CrawlDetailFragment extends Fragment {
 		
 		final String crawlId = getActivity().getIntent().getStringExtra("CRAWLID");
 		
-		Button joinButton = (Button) view.findViewById(R.id.btnJoinCrawl);
+		final Button joinButton = (Button) view.findViewById(R.id.btnJoinCrawl);
 		joinButton.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View arg0) {
 				joinCrawl(crawlId);
+				joinButton.setEnabled(false);
+				
+				Intent intent = new Intent(getActivity().getApplicationContext(),CrawlTabActivity.class);
+			    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+			    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			    getActivity().getApplicationContext().startActivity(intent);
 			}
 		});
 		

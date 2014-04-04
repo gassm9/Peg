@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+   xmlns:tools="http://schemas.android.com/tools"
+   android:layout_width="match_parent"
+   android:layout_height="match_parent"
+   android:fillViewport="true"
+   android:stackFromBottom="true"
+   android:transcriptMode="alwaysScroll" >
+   
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
@@ -31,6 +39,15 @@
         android:gravity="center"
         android:padding="15dp"
         android:text="Beschreibung des Pubs" />
+        <TextView
+        android:id="@+id/tv_pubRating"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_gravity="center"
+        android:layout_margin="15dp"
+        android:background="@drawable/layer_card_background"
+        android:gravity="center"
+        android:padding="15dp"/>
 
     <RatingBar
         android:id="@+id/rb_pubRating"
@@ -40,5 +57,12 @@
         android:numStars="4"
         android:rating="2.0"
         android:stepSize="1.0" />
+          <Button
+          android:id="@+id/btnRate"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/button_rate" />
 
 </LinearLayout>
+
+          </ScrollView>
